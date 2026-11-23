@@ -1,0 +1,71 @@
+/* MENU PADRÃO DO SITE — baseado na página Serviços 2 */
+.navbar {
+    width: 100%;
+    height: auto;
+    margin: 0;
+    padding: 0 6%;
+    background-color: #b60913;
+    border-radius: 0;
+    box-shadow: none;
+    display: block;
+    position: relative;
+    z-index: 100;
+}
+.navbar-conteudo {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+.navbar a {
+    display: block;
+    padding: 16px 24px;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+    border-radius: 0;
+}
+.navbar a:hover, .navbar a:focus, .navbar a.ativo {
+    background-color: #7e0710;
+    color: #ffffff;
+}
+.cabecalho {
+    background-color: #111111;
+    color: #ffffff;
+    padding: 22px 6%;
+}
+.cabecalho-conteudo {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+.marca { display: flex; align-items: center; gap: 14px; }
+.marca-simbolo {
+    background-color: #c20c16;
+    color: #ffffff;
+    border-radius: 50%;
+    width: 58px;
+    height: 58px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    font-weight: bold;
+}
+.marca-texto strong { display: block; font-size: 27px; letter-spacing: 2px; }
+.marca-texto span { display: block; font-size: 12px; letter-spacing: 2px; margin-top: 3px; }
+.slogan { color: #dddddd; font-size: 16px; text-align: right; }
+@media (max-width: 800px) {
+    .cabecalho-conteudo { flex-direction: column; text-align: center; }
+    .slogan { text-align: center; }
+    .navbar { width: 100%; }
+    .navbar-conteudo { gap: 0; }
+    .navbar a { padding: 13px 15px; font-size: 14px; }
+}
+@media (max-width: 380px) { .navbar a { padding: 11px 10px; font-size: 13px; } }

@@ -1,0 +1,19 @@
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: Arial, Helvetica, sans-serif; background: #1c1c1c; color: #eee; }
+.sobre { width: min(980px, 100%); margin: auto; padding: 36px 28px 48px; }
+.sobre-intro { padding-bottom: 28px; margin-bottom: 28px; border-bottom: 1px solid #3c3c3c; }
+.pequeno { display: block; color: #ff0011; font-size: 11px; font-weight: 700; letter-spacing: .16em; margin-bottom: 12px; }
+.sobre-intro h1 { font-size: clamp(24px, 2.3vw, 30px); line-height: 1.3; letter-spacing: -.02em; font-weight: 700; }
+.sobre-intro h1 span { color: #ff0011; }
+.sobre-layout { display: grid; grid-template-columns: 1fr 1.1fr; gap: 36px; align-items: start; }
+.sobre-galeria { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.sobre-galeria img { display: block; width: 100%; height: 290px; object-fit: cover; border-radius: 8px; border: 1px solid #444; }
+.sobre-galeria img:last-child { margin-top: 28px; }
+.sobre-historia { padding-top: 8px; }
+.sobre-historia h2 { font-size: 23px; line-height: 1.3; margin-bottom: 16px; }
+.sobre-historia p { font-size: 15px; line-height: 1.75; color: #d9d9d9; margin-bottom: 14px; }
+.sobre-historia strong { color: #ff0000; }
+.sobre-historia .sobre-assinatura { color: #ffffff; font-weight: 700; font-size: 14px; border-left: 3px solid #c20c16; padding-left: 12px; margin: 20px 0 0; }
+footer { text-align: center; padding: 20px; color: #cbd5e1; background: #000; border-top: 1px solid #ffffff1a; width: 100%; font-size: 14px; }
+.whatsapp-float { position: fixed; right: 20px; bottom: 20px; width: 60px; height: 60px; background: #f00; border-radius: 50%; display: flex; align-items: center; justify-content: center; box-shadow: 0 4px 12px #0005; z-index: 9999; }
+@media (max-width: 700px) { .sobre { padding: 28px 22px 40px; } .sobre-layout { grid-template-columns: 1fr; gap: 24px; } .sobre-galeria img { height: 240px; } .sobre-galeria img:last-child { margin-top: 16px; } .quebra-desktop { display: none; } .sobre-historia { padding-top: 0; } }

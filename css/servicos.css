@@ -1,0 +1,483 @@
+/* =========================================================
+   1. CONFIGURAÇÃO GERAL
+   ========================================================= */
+
+/* Seleciona todos os elementos da página. */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* Corpo da página. */
+body {
+  font-family: "Segoe UI", Arial, sans-serif;
+  min-height: 100vh;
+  color: #ffffff;
+
+  /* Fundo da página */
+  background:
+    radial-gradient(circle at top, #1c1c1c 0%, transparent 35%),
+    linear-gradient(135deg, #1c1c1c, #1c1c1c);
+}
+
+
+/* BARRA DE NAVEGAÇÃO */
+.navbar {
+    background-color: #b60913;
+    padding: 0 6%;
+}
+.navbar-conteudo {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+.navbar a {
+    display: block;
+    padding: 16px 24px;
+    color: #ffffff;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: bold;
+}
+.navbar a:hover,
+.navbar a:focus,
+.navbar a.ativo {
+    background-color: #7e0710;
+    color: #ffffff;
+}
+
+
+/*LOGO*/
+
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 600px;
+    
+}
+
+.logo-icon {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background: #ae058d;
+    color: rgb(0, 0, 0);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 21px;
+    font-weight: bold;
+}
+
+.logo-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.logo-text strong {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 30px;
+    color: #ffffff;
+}
+
+.logo-text span {
+    font-size: 11px;
+    color: rgb(255, 0, 0);
+    margin-top: 2px;
+}
+
+
+/*MENU*/
+
+.menu {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    list-style: none;
+}
+
+.menu a {
+    text-decoration: none;
+    color: #ffffff;
+    font-size: 14px;
+    padding: 11px 16px;
+    border-radius: 25px;
+    transition: 0.3s;
+}
+
+.menu a:hover {
+    background: #000000;
+    color: #ff0000;
+}
+
+
+
+
+/* =========================================================
+   3. CABEÇALHO
+   ========================================================= */
+
+.hero {
+  max-width: 900px;
+  margin: auto;
+  padding: 45px 20px 35px;
+  text-align: center;
+}
+
+.eyebrow {
+  color: #ff0000;
+  font-size: 45px;
+  font-weight: 700;
+  letter-spacing: 3px;
+}
+
+.hero h1 {
+  margin: 12px 0;
+  font-size:40px;
+}
+
+.hero p {
+  color: #ff0000;
+  line-height: 1.6;
+}
+
+
+/* =========================================================
+   4. ÁREA DOS CARDS
+   ========================================================= */
+
+/* O Grid organiza os quatro cartões. */
+.cards-container {
+  width: min(1100px, 92%);
+  margin: 0 auto 60px;
+
+  display: grid;
+
+  /* 4 cards lado a lado em telas grandes */
+  grid-template-columns: repeat(4, 1fr);
+
+  gap: 22px;
+}
+
+/* =========================================================
+   5. ESTRUTURA DO CARD
+   ========================================================= */
+
+.card {
+  height: 500px;
+
+  /* Cria profundidade para o efeito 3D */
+  perspective: 1200px;
+}
+
+/* Parte que realmente gira */
+.card-inner {
+  position: relative;
+  width: 100%;
+  height: 80%;
+
+  /* Permite frente e verso */
+  transform-style: preserve-3d;
+
+  /* Deixa a animação suave */
+  transition: transform 0.7s cubic-bezier(.2, .8, .2, 1);
+}
+
+
+/*
+  Quando o JavaScript adiciona "flipped",
+  o cartão gira 180 graus.
+*/
+.card-inner.flipped {
+  transform: rotateY(180deg);
+}
+
+
+/* =========================================================
+   6. FRENTE E VERSO
+   ========================================================= */
+
+.card-face {
+  position: absolute;
+  inset: 0;
+
+  overflow: hidden;
+  border-radius: 26px;
+
+  /* Esconde a face que estiver atrás */
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+
+  border: 1px solid rgba(255, 255, 255, 0.14);
+
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0);
+}
+
+
+/* =========================================================
+   7. FRENTE DO CARD
+   ========================================================= */
+
+.card-front {
+  background: #203946;
+}
+
+.card-image {
+  width: 100%;
+  height: 100%;
+
+  /* Faz a imagem preencher o card */
+  object-fit: cover;
+
+  display: block;
+
+  /* Escurece a imagem para facilitar a leitura */
+  filter: brightness(0.65);
+
+  transition: transform 0.6s ease;
+}
+
+/* Pequeno zoom na imagem ao passar o mouse */
+.card:hover .card-image {
+  transform: scale(1.05);
+}
+
+
+/* Conteúdo sobre a imagem */
+.front-content {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+
+  padding: 25px;
+  text-align: left;
+
+  /* Degradê para melhorar a leitura */
+  background: linear-gradient(
+    transparent,
+    rgba(28, 28, 28, 0.288) 40%
+  );
+}
+
+
+/* Pequena etiqueta */
+.tag {
+  display: inline-block;
+
+  color: #d9f2fb;
+  background: rgba(117, 180, 204, 0.18);
+
+  border: 1px solid rgba(7, 168, 221, 0.2);
+  border-radius: 20px;
+
+  padding: 6px 9px;
+  margin-bottom: 10px;
+
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 1.3px;
+}
+
+
+/* Título dos cards */
+.card h2 {
+  font-size: 1.55rem;
+  line-height: 1.15;
+  margin-bottom: 10px;
+}
+
+
+/* Texto da frente */
+.card-front p {
+  color: #d1dce1;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  margin-bottom: 18px;
+}
+
+
+/* =========================================================
+   8. BOTÕES
+   ========================================================= */
+
+.btn {
+  width: 100%;
+
+  border: 0;
+  border-radius: 11px;
+
+  padding: 12px 16px;
+
+  color: #000000;
+  background: #ffffff;
+
+  font-size: 0.9rem;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition: 0.25s;
+}
+
+
+/* Efeito ao passar o mouse */
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+}
+
+
+/* Efeito ao clicar */
+.btn:active {
+  transform: scale(0.98);
+}
+
+
+/* =========================================================
+   9. VERSO
+   ========================================================= */
+
+.card-back {
+  transform: rotateY(180deg);
+
+  padding: 28px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  background:
+    linear-gradient(145deg, #000000, #2c2c2c);
+}
+
+.card-back h2 {
+  margin-bottom: 10px;
+  font-size: 20px;
+}
+
+.card-back > p {
+  color: #ffffff;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+
+/* Caixa de informação */
+.info {
+  padding: 14px;
+
+  border-left: 3px solid #9ec3d2;
+
+  background: rgba(255, 255, 255, 0.06);
+
+  border-radius: 0 10px 10px 0;
+
+  margin-bottom: 20px;
+}
+
+.info strong {
+  display: block;
+  color: #9ec3d2;
+
+  font-size: 0.7rem;
+  letter-spacing: 1px;
+
+  margin-bottom: 6px;
+}
+
+.info span {
+  color: #ffffff;
+  font-size: 0.82rem;
+  line-height: 1.4;
+}
+
+
+.whatsapp-float {
+    position: fixed;
+    right: 20px;
+    bottom: 20px;
+    width: 60px;
+    height: 60px;
+    background: #ff0000;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+    z-index: 9999;
+    transition: transform 0.2s;
+  }
+  .whatsapp-float:hover { transform: scale(1.1); }
+
+/* =========================================================
+   10. RODAPÉ
+   ========================================================= */
+
+footer {
+    text-align: center;
+    padding: 20px;
+    color: #cbd5e1;
+    background: #000000;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    width: 100%;
+}
+
+
+/* =========================================================
+   11. RESPONSIVIDADE
+   ========================================================= */
+
+/* Tablet: 2 cards por linha */
+@media (max-width: 900px) {
+
+  .cards-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+
+/* Celular: 1 card por linha */
+@media (max-width: 550px) {
+
+  .cards-container {
+    grid-template-columns: 1fr;
+    width: min(390px, 90%);
+  }
+
+  .card {
+    height: 470px;
+  }
+
+  .hero {
+    padding-top: 25px;
+  }
+}
+
+/* Linhas centralizadas: quatro cards e três na última linha. */
+.cards-container { display: flex; flex-wrap: wrap; justify-content: center; align-items: stretch; }
+.cards-container > .card { flex: 0 0 calc((100% - 66px) / 4); min-width: 0; height: 400px; }
+.card-inner { height: 100%; }
+.front-content { padding: 22px; background: linear-gradient(transparent, rgba(0,0,0,.9) 45%); }
+.card h2 { font-size: 1.15rem; line-height: 1.25; overflow-wrap: break-word; }
+.card-back { padding: 22px; overflow-y: auto; justify-content: flex-start; }
+.card-back .btn { margin-top: auto; }
+@media (max-width: 900px) { .cards-container > .card { flex-basis: calc((100% - 22px) / 2); } }
+@media (max-width: 550px) { .cards-container > .card { flex-basis: 100%; height: 400px; } }
+@media (prefers-reduced-motion: reduce) { .card-inner, .card-image { transition: none; } }
+
+/* Escala mais compacta, sem alterar o zoom do navegador. */
+.hero { padding: 28px 20px 26px; }
+.eyebrow { font-size: 28px; }
+.hero h1 { font-size: clamp(25px, 2.6vw, 32px); margin: 8px 0; }
+.hero p { font-size: 14px; }
+.front-content { padding: 18px; }
+.card-back { padding: 18px; }
+.card-back h2 { font-size: 18px; }
+.card-back > p { font-size: 14px; line-height: 1.55; }

@@ -1,0 +1,17 @@
+/* Botão acima do acesso lateral ao VLibras. */
+.contraste-toggle { position: fixed; right: 10px; top: calc(50% - 104px); z-index: 999999; display: flex; align-items: center; gap: 6px; min-height: 44px; padding: 8px 10px; border: 2px solid #fff; border-radius: 8px; background: #111; color: #fff; font: 700 12px/1.2 Arial, sans-serif; cursor: pointer; box-shadow: 0 3px 12px #0006; }
+.contraste-toggle > span:first-child { font-size: 26px; }
+:focus-visible { outline: 3px solid #ffe600; outline-offset: 4px; }
+html.alto-contraste { color-scheme: dark; }
+html.alto-contraste body, html.alto-contraste body :is(nav, header, main, footer, section, article, .sobre-texto, .conteudo, .front-content, .card-face, .card-inner, .contato-info, .mapa-container) { background: #000 !important; color: #fff !important; box-shadow: none !important; }
+html.alto-contraste body :is(h1,h2,h3,p,strong,span,label,li) { color: #fff !important; text-shadow: none !important; }
+html.alto-contraste body :is(a,button) { color: #ffe600 !important; background: #000 !important; border: 2px solid #ffe600 !important; text-shadow: none !important; }
+html.alto-contraste body a { text-decoration: underline !important; }
+html.alto-contraste body :is(a,button):is(:hover,:focus-visible), html.alto-contraste body a[aria-current="page"] { background: #ffe600 !important; color: #000 !important; }
+html.alto-contraste .contraste-toggle span { color: inherit !important; }
+html.alto-contraste .card-face { border: 2px solid #fff !important; }
+html.alto-contraste .card-image { filter: brightness(.45) !important; }
+html.alto-contraste .front-content { background: #000 !important; }
+html.alto-contraste :is(input,textarea,select) { color: #fff !important; background: #000 !important; border: 2px solid #fff !important; }
+html.alto-contraste :is(input,textarea)::placeholder { color: #fff !important; }
+@media (max-width: 550px) { .contraste-toggle { right: 10px; padding: 6px; font-size: 11px; } }
